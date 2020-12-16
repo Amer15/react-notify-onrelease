@@ -1,0 +1,10 @@
+#Home{
+ min-width: 100vw;
+ min-height: 100vh;
+ color: #000000;
+}
+
+#Home h1,
+#Home p{
+    text-align: center;
+}

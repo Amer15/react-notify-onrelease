@@ -1,0 +1,49 @@
+#Form-container{
+    width: 500px;
+    background: #ffffff90;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: #000000;
+    margin: 80px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 8px;
+}
+  
+#Form-container form {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+#Form-container form input,
+#Form-container form button{
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+  
+#Form-container form input{
+    background: #ffffff;
+    border: 1px solid #00000035;
+}
+  
+#Form-container form label{
+    font-size: 18px;
+    align-self: flex-start;
+    margin-left: 18px;
+}
+  
+#Form-container form button{
+    font-weight: 600;
+    font-size: 20px;
+    background: #c0392b;
+    color: #ffffff;
+    cursor: pointer;
+}
+  
