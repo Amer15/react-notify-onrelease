@@ -23,6 +23,7 @@ async function writeData(userdata) {
 }
 
 
+
 exports.getUserDetails = (req, res) => {
     const { buildDate } = req.headers;
 

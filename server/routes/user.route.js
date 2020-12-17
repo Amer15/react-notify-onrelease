@@ -8,4 +8,5 @@ router.get('/user',getBuildTime ,checkBuildDate ,getUserDetails);
 router.post('/add-user',getBuildTime ,checkBuildDate, addUserDetails);
 
 
+
 module.exports = router;

@@ -1,0 +1,40 @@
+#modal {
+    background: honeydew;
+    color: #00000097;
+    width: 400px;
+    height: 120px;
+    padding: 8px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6%;
+    margin: 8px auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: all 500ms ease;
+}
+
+
+#modal button{
+    padding: 8px 20px;
+    font-size: 16px;
+    background: #00b894;
+    color: #e6e6e6;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
+.hide {
+    z-index: -100;
+    opacity: 0;
+}
+
+.show{
+    z-index: 1;
+    opacity: 1;
+}

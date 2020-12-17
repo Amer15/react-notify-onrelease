@@ -27,6 +27,10 @@
     border: none;
     outline: none;
 }
+
+#Form-container form input {
+    font-size: 18px;
+}
   
 #Form-container form input{
     background: #ffffff;
@@ -45,5 +49,26 @@
     background: #c0392b;
     color: #ffffff;
     cursor: pointer;
+}
+
+#build-date{
+    color: rgb(153, 152, 152);
+}
+
+
+#error{
+  color: #d63031;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  text-align: center;
+}
+
+#success{
+ color: #1abc9c;
+ font-size: 16px;
+ font-weight: 600;
+ padding: 10px;
+ text-align: center;
 }
   

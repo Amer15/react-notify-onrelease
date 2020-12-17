@@ -38,8 +38,8 @@ exports.checkBuildDate = (req, res, next) => {
     const { clientbuilddate , buildDate } = req.headers;
 
     if(Number(clientbuilddate) !== buildDate) {
-        return res.status(400).json({
-            message: 'A new version is available, please update by clicking the button.'
+        return res.status(403).json({
+            message: 'you are using old version, please update to continue'
         });
     }
     else{
