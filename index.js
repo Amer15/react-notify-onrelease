@@ -16,12 +16,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 
-
+//Routes
 app.use('/api', userRoutes);
 
 
 if (process.env.NODE_ENV === 'production') {
-    //In ca    app.use(express.static('client/build'));se frontend is rendered from nodejs
+    //In case frontend is rendered from nodejs
     app.use(express.static(path.join(__dirname, './client/build')));
 
     //for all the client requests

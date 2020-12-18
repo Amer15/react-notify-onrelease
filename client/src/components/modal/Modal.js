@@ -1,4 +1,5 @@
 import React from 'react';
+import { removeCookie } from '../../utils/helper';
 import './Modal.css';
 
 
@@ -13,6 +14,10 @@ const Modal = ({ msg, showModal }) => {
         }
       });
     }
+
+    //clear cookie
+    removeCookie('buildDate');
+    
     // delete browser cache and hard reload
     window.location.reload(true);
   }

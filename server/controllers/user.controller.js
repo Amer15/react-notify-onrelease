@@ -82,5 +82,6 @@ exports.getMetaData = (req, res) => {
         }
         return data;
     });
+    console.log(JSON.parse(metaData))
     return res.json(JSON.parse(metaData));
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import packageJson from "../package.json";
+// import packageJson from "../package.json";
 import moment from "moment";
-import { setCookie } from "./utils/helper";
+import { setCookie, getCookie, removeCookie } from "./utils/helper";
+import { url } from "./utils/api";
 
 
 const buildDateGreaterThan = (latestDate, currentDate) => {
@@ -9,6 +10,7 @@ const buildDateGreaterThan = (latestDate, currentDate) => {
     const momCurrentDateTime = moment(currentDate);
   
     if (momLatestDateTime.isAfter(momCurrentDateTime)) {
+      console.log('buildDates are different, doing cache burst and hard reload !')
       return true;
     } else {
       return false;
@@ -20,13 +22,20 @@ function withClearCache(Component) {
       const [isLatestBuildDate, setIsLatestBuildDate] = useState(false);
   
       useEffect(() => {
-        fetch("/meta.json")
+        fetch(`${url}/meta.json`)
           .then((response) => response.json())
           .then((meta) => {
             console.log(meta);
-            setCookie('buildDate', meta.buildDate);
+
+            if(!getCookie('buildDate')){
+              setCookie('buildDate', meta.buildDate);
+            }
+
+
             const latestVersionDate = meta.buildDate;
-            const currentVersionDate = packageJson.buildDate;
+            // const currentVersionDate = packageJson.buildDate;
+            const currentVersionDate = Number(getCookie('buildDate'));
+            
   
             const shouldForceRefresh = buildDateGreaterThan(
               latestVersionDate,
@@ -50,6 +59,9 @@ function withClearCache(Component) {
             }
           });
         }
+
+        //Remove cookie
+        removeCookie('buildDate');
         // delete browser cache and hard reload
         window.location.reload(true);
       };

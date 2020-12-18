@@ -53,7 +53,7 @@ const LoginForm = () => {
             setSuccessMsgs(data.data.message);
         })
         .catch(err => {
-           console.log(err.response.status);
+           console.log(err);
            if(err.response.status === 403) {
                setShowModal(true);
                setErrorMsgs(err.response.data.message);
@@ -61,6 +61,8 @@ const LoginForm = () => {
            setLoading(false);
         });   
     }   
+
+    // console.log(url)
 
     return (
         <Fragment>
