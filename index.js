@@ -7,7 +7,7 @@ const userRoutes = require('./server/routes/user.route');
 
 
 //PORT
-const PORT = process.env.NODE_PORT || 5000;
+const PORT = process.env.PORT || process.env.NODE_PORT || 5000;
 
 
 //Middlewares
