@@ -70,7 +70,7 @@ const LoginForm = () => {
             <div id="Form-container">
                 <h2>Sign up</h2>
                 <br />
-                <p id='build-date'>Build date: {getBuildDate(packageJson.buildDate)}, app version 1.0.0</p>
+                <p id='build-date'>Build date: {getBuildDate(packageJson.buildDate)}, app version 1.0.1</p>
                 <br />
                 <form onSubmit={onSubmitHandler}>
                     <label htmlFor="email">Email:</label>
