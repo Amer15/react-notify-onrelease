@@ -6,6 +6,7 @@ import Navbar from '../navbar/Navbar';
 import './LoginForm.css';
 import Modal from '../modal/Modal';
 import { url } from '../../utils/api';
+import { getCookie } from '../../utils/helper';
 
 
 
@@ -35,10 +36,13 @@ const LoginForm = () => {
            password: password
         }
 
+        const clientbuilddate = getCookie('buildDate');
+        console.log('clientbuilddate : ' + clientbuilddate);
+
         axios.post(`${url}/add-user`, userData, {
           headers:{
               'Content-Type':'application/json',
-              'clientbuilddate': packageJson.buildDate
+              'clientbuilddate': clientbuilddate
           }
         })
         .then( data => {
@@ -56,13 +60,7 @@ const LoginForm = () => {
            }
            setLoading(false);
         });   
-    }
-
-    // const toggleModal = () => {
-    //     setShowModal(prevState => {
-    //         return !prevState;
-    //     });
-    // }
+    }   
 
     return (
         <Fragment>
@@ -83,10 +81,6 @@ const LoginForm = () => {
                         value={password} onChange={e => setPassword(e.target.value)} />
                     <button>{loading ? 'Loging in..' : 'Login'}</button>
                 </form>
-                {/* <button onCli// const toggleModal = () => {
-    //     setShowModal(prevState => {
-    //         return !prevState;
-    //    ck={toggleModal}>Toggle Modal</button> */}
             </div>
             <Modal msg="A new version available, please click on update" showModal={showModal}/>
         </Fragment>

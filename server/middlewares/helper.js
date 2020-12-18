@@ -17,7 +17,7 @@ function getData() {
     return metaInfo;
 }
 
-//Adding builddate to the req headers
+//Adding builddate stored on server to the req headers
 exports.getBuildTime = async (req, res, next) => {
     try {
         const metaData = await JSON.parse(getData());

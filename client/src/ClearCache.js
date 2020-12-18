@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import packageJson from "../package.json";
 import moment from "moment";
+import { setCookie } from "./utils/helper";
 
 
 const buildDateGreaterThan = (latestDate, currentDate) => {
@@ -22,6 +23,8 @@ function withClearCache(Component) {
         fetch("/meta.json")
           .then((response) => response.json())
           .then((meta) => {
+            console.log(meta);
+            setCookie('buildDate', meta.buildDate);
             const latestVersionDate = meta.buildDate;
             const currentVersionDate = packageJson.buildDate;
   

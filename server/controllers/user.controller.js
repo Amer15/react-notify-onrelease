@@ -22,19 +22,37 @@ async function writeData(userdata) {
    }
 }
 
-
-
-exports.getUserDetails = (req, res) => {
-    const { buildDate } = req.headers;
-
-    return res.send({
-        "username": "John Doe",
-        "email": "john@gmail.com",
-        "buildTime": buildDate
-    });
+async function readData() { 
+    try {
+     const result = fs.readFileSync(path.join(__dirname + '../../userdata.json'), 'utf8', (err, data) => {
+        if(err) return res.status(400).json({
+            error: 'failed to write data'
+        });
+ 
+        return data;
+     });
+ 
+     return JSON.parse(result);
+    } catch (error) {
+        return res.status(400).json({
+            error
+        });
+    }
 }
 
 
+//GET USER DETAILS
+exports.getUserDetails = async (req, res) => {
+    // const { buildDate } = req.headers;
+    try {
+        const userDetails = await readData();
+        return res.json(userDetails);
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+}
+
+//ADD USER DETAILS
 exports.addUserDetails = async(req, res) => {
     try {
         const { email , password } = req.body;
@@ -51,4 +69,18 @@ exports.addUserDetails = async(req, res) => {
     } catch (error) {
         return res.status(400).json(error);
     }
+}
+
+
+//GET METADATA FROM SERVER (BUILD FOLDER)
+exports.getMetaData = (req, res) => {
+    const metaDataPath = path.join(__dirname + '../../../client/build/meta.json');
+    const metaData = fs.readFileSync(metaDataPath, 'utf8',(error, data) => {
+        if (error) {
+            console.log(error);
+            return;
+        }
+        return data;
+    });
+    return res.json(JSON.parse(metaData));
 }
