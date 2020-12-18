@@ -6,3 +6,7 @@ export const getBuildDate = (epoch) => {
     return buildDate;
 };
   
+
+export const getAppVersion = () => {
+    return '1.0.0';
+}

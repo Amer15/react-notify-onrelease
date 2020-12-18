@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import axios from 'axios';
 import packageJson from '../../../package.json';
-import { getBuildDate } from '../../utils/utils';
+import { getBuildDate, getAppVersion, } from '../../utils/utils';
 import Navbar from '../navbar/Navbar';
 import './LoginForm.css';
 import Modal from '../modal/Modal';
@@ -70,7 +70,7 @@ const LoginForm = () => {
             <div id="Form-container">
                 <h2>Sign up</h2>
                 <br />
-                <p id='build-date'>Build date: {getBuildDate(packageJson.buildDate)}, app version 1.0.1</p>
+                <p id='build-date'>Build date: {getBuildDate(packageJson.buildDate)}, app version {getAppVersion()}</p>
                 <br />
                 <form onSubmit={onSubmitHandler}>
                     <label htmlFor="email">Email:</label>

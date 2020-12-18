@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import Navbar from '../navbar/Navbar';
-import packageJson from '../../../package.json';
-import { getBuildDate } from '../../utils/utils';
+import { getAppVersion } from '../../utils/utils';
 import './Home.css';
 
 
@@ -11,7 +10,7 @@ const Home = () => {
          <Navbar />
          <div id="Home">
           <h1>This is Home page</h1>
-          <p>Build date: {getBuildDate(packageJson.buildDate)}</p>
+          <p>App version: {getAppVersion()}</p>
          </div>
       </Fragment>
    )
