@@ -70,7 +70,7 @@ const LoginForm = () => {
             {errorMsgs ? <p id='error' onClick={hideMsg}>{errorMsgs}</p> : null}
             {successMsgs ? <p id='success' onClick={hideMsg}>{successMsgs}</p> : null}
             <div id="Form-container">
-                <h2>Sign up</h2>
+                <h2> React App - Sign up</h2>
                 <br />
                 <p id='build-date'>Build date: {getBuildDate(packageJson.buildDate)}, app version {getAppVersion()}</p>
                 <br />
